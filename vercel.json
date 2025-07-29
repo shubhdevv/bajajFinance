@@ -8,13 +8,13 @@
   ],
   "routes": [
     {
-      "src": "/bfhl",
-      "methods": ["POST"],
+      "src": "/",
+      "methods": ["GET"],
       "dest": "index.js"
     },
     {
-      "src": "/",
-      "methods": ["GET"],
+      "src": "/bfhl",
+      "methods": ["POST"],
       "dest": "index.js"
     }
   ]

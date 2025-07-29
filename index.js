@@ -12,26 +12,26 @@ app.post("/bfhl", (req, res) => {
       return res.status(400).json({ is_success: false, message: "Invalid input" });
     }
 
-    const even_numbers = [];
-    const odd_numbers = [];
-    const alphabets = [];
-    const special_characters = [];
+    const even_no = [];
+    const odd_no = [];
+    const alpha = [];
+    const special_char = [];
     let sum = 0;
 
     input.forEach((item) => {
       if (!isNaN(item)) {
         const num = parseInt(item);
-        if (num % 2 === 0) even_numbers.push(item);
-        else odd_numbers.push(item);
+        if (num % 2 === 0) even_no.push(item);
+        else odd_no.push(item);
         sum += num;
       } else if (/^[a-zA-Z]$/.test(item)) {
-        alphabets.push(item.toUpperCase());
+        alpha.push(item.toUpperCase());
       } else {
-        special_characters.push(item);
+        special_char.push(item);
       }
     });
 
-    const reverse_alt_caps = alphabets
+    const reverse_alt_caps = alpha
       .map((c, i, arr) => arr[arr.length - 1 - i])
       .map((c, i) => (i % 2 === 0 ? c.toUpperCase() : c.toLowerCase()))
       .join("");
@@ -41,10 +41,10 @@ app.post("/bfhl", (req, res) => {
       user_id: "shubham_dhoni_29072005",
       email_id: "shubhdevv@gmail.com",
       college_roll_number: "2210992363",
-      even_numbers,
-      odd_numbers,
-      uppercase_alphabets: alphabets,
-      special_characters,
+      even_no,
+      odd_no,
+      uppercase_alpha: alpha,
+      special_char,
       sum_of_numbers: sum,
       reverse_alternating_caps: reverse_alt_caps,
     });
